@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.font-store.ir/nazanin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    </div>
+
+    <header>
+        <div class="imgcon">
+            <div> <ion-icon name="arrow-back-outline"></ion-icon></div>
+            <div>  <img src="https://static.roocket.ir/images/avatar/2025/3/4/jaz40erUe1zTVYHSGWbTUkkvuZDkSsJ2y58HdSWo.png" alt=""></div>
+            <div><H3>mostafa veisi <br><span class="span">online</span></H3></div>
+        </div>
+        <div class="btncon">
+            <ion-icon name="ellipsis-vertical"></ion-icon>
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="masbox">
+            <div class="mas">سلام رفقا!👋من مصطفی ام،اگه می‌خواهید با من به اشتراک بذارید، اینجا می‌تونید پیام یا فایل‌ها رو ارسال کنید.همه چیز مستقیماً به ایمیلم ارسال می‌شه<br><span>6:00 AM</span></div>
+        </div>
+    </div>
+
+
+    <div class="bottm">
+        <div class="left">
+            <ion-icon class="happy" name="happy" onclick="toggleEmoji()"></ion-icon>
+        </div>
+
+        <form id="myForm" action="https://formspree.io/f/mqaerdly" method="post">
+            <textarea class="input" name="متن پیام" id="messageArea"></textarea>
+        </form>
+        <ion-icon class="send" name="send" onclick="submitForm()"></ion-icon>
+    </div>
+
+    <div class="emoji-container" id="emoji-container">
+        <span class="emoji" onclick="addEmoji('😊')">😊</span>
+        <span class="emoji" onclick="addEmoji('😃')">😃</span>
+        <span class="emoji" onclick="addEmoji('❤️')">❤️</span>
+        <span class="emoji" onclick="addEmoji('👑')">👑</span>
+        <span class="emoji" onclick="addEmoji('💪')">💪</span>
+        <span class="emoji" onclick="addEmoji('😂')">😂</span>
+    </div>
+
+    <!-- قسمت استایل ها -->
+    <style>
+        body {
+            background: linear-gradient(180deg, #d6e9fa, #e0feff);
+            /* background-image: url(https://file.mediabaz.net/background/khas/sadeh/MediaBaz.net-simple-009.jpg); */
+            background-size:32rem 100vh ;
+            overflow: hidden;
+        }
+
+        @media(max-width: 450px) {
+            body {
+                background-size: 30rem 50rem;
+            }
+        }
+
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px;
+            background-color: #4791C1;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0rem;
+            z-index: 10;
+        }
+
+        ion-icon {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.896);
+            cursor: pointer;
+        }
+
+        .btncon {
+            margin: 0 10px;
+        }
+
+        img {
+            width: 55px;
+            border-radius: 50%;
+        }
+
+        .imgcon {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .imgcon h3 {
+            font-size: .95rem;
+            line-height: 1.24em;
+            color: #fff;
+            margin-left: .2rem;
+            font-family: 'roboto';
+        }
+
+        .span {
+            color: #ffffffb5;
+            font-size: .8rem;
+            font-family: inherit;
+            font-weight: 400;
+        }
+
+        .masbox {
+            padding: 10px;
+        }
+
+        .mas {
+            font-family: vazirmatn;
+            margin-top: 5.5rem;
+            background-color: #fff;
+            padding: 1rem;
+            text-align: end;
+            border-radius: 10px;
+            border-end-end-radius: 0px;
+            margin-right: -0.6rem;
+            margin-left: .5rem;
+            font-size: .9rem;
+        }
+        .happy:hover{
+            transform: rotate(360deg);
+            transition: transform .8s ease-in ;
+        }
+        .mas span {
+            display: block;
+            text-align: start;
+            color: #646464;
+            font-size: 0.75rem;
+            font-family: 'roboto';
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .bottm {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            background-color: #fff;
+            width: 100%;
+            padding: 12px;
+            transition: bottom 0.3s ease;
+            z-index: 20;
+        }
+        @media ( min-width: 550px) {
+            .bottm{
+                display: flex;
+                justify-content: space-around;
+            }
+            .masbox{
+                display: flex;
+                justify-content: flex-end;
+            }
+            .mas{
+                width: 31vw;
+                height: 6vw;
+            }
+            .input{
+                margin-right: -3rem;
+                margin-left: 8rem;
+            }
+            .happy{
+                display: none;
+            }
+
+        }
+        .bottm ion-icon {
+            color: #777;
+        }
+
+        .bottm .input {
+            width: 79vw;
+            border: none;
+            outline: none;
+            direction: rtl;
+            font-family: 'vazirmatn' , 'roboto';
+            height: 26px;
+            resize: none;
+            font-size: .9rem;
+        }
+
+        .happy {
+            margin-left: .2rem;
+            font-size: 1.5rem;
+        }
+
+        .send {
+            margin-left: .6rem;
+            color: #4791C1 !important;
+            font-size: 1.5rem;
+        }
+
+        .emoji-container {
+            display: none;
+            position: absolute;
+            bottom: 60px;
+            left: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 30;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .emoji {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .emoji-container.show {
+            display: flex;
+        }
+
+        html, body {
+            touch-action: manipulation;
+            overflow: hidden;
+            touch-action: none;
+        }
+        .emoji:hover{
+            transform: scale(1.5);
+        }
+
+    </style>
+
+    <!-- اسکریپت برای باز و بسته کردن ایموجی‌ها -->
+    <script>
+        function toggleEmoji() {
+            const emojiContainer = document.getElementById("emoji-container");
+            emojiContainer.classList.toggle("show");
+        }
+
+        function addEmoji(emoji) {
+            const input = document.querySelector(".bottm textarea");
+            input.value += emoji;
+            const emojiContainer = document.getElementById("emoji-container");
+            emojiContainer.classList.remove("show");
+        }
+
+        // اسکریپت برای ارسال فرم
+        function submitForm() {
+            // گرفتن محتوای textarea
+            const message = document.getElementById("messageArea").value;
+
+            // پیدا کردن فرم
+            const form = document.getElementById("myForm");
+
+            // اضافه کردن محتوای textarea به فرم
+
+            // ارسال فرم
+            form.submit();
+        }
+
+        window.addEventListener('focusin', function() {
+            setTimeout(function() {
+                const keyboardHeight = window.innerHeight - document.documentElement.clientHeight;
+                if (keyboardHeight > 100) { // فقط زمانی که کیبورد باز شده، این تغییرات اعمال بشه
+                    document.querySelector('.bottm').style.transition = 'bottom 0.3s ease';
+                    document.querySelector('.bottm').style.bottom = `${keyboardHeight}px`; // تنظیم دیو زیر کیبورد
+                }
+            }, 300); // کمی تاخیر برای جلوگیری از تغییرات ناگهانی
+        });
+
+        window.addEventListener('focusout', function() {
+            document.querySelector('.bottm').style.transition = 'bottom 0.3s ease';
+            document.querySelector('.bottm').style.bottom = '0';  // برگشت به حالت اولیه
+        });
+
+    </script>
+</body>
+</html>
